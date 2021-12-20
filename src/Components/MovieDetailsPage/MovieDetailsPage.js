@@ -46,11 +46,7 @@ const MovieDetailsPage = () => {
     <>
       <button
         onClick={() => {
-          const paramsPath = routerState.current.params.pathname;
-          const paramsSearch = routerState.current.params.search;
-
-          // console.log(`${paramsPath}${paramsSearch}`);
-          history.push(`${paramsPath}${paramsSearch}`);
+          history.push('/');
         }}
       >
         Назад
