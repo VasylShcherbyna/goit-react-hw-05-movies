@@ -5,6 +5,7 @@ import {
   useRouteMatch,
   useHistory,
   useLocation,
+  // useNavigate,
 } from 'react-router-dom';
 import { getMoviesById, getMoviesReviews, getMoviesCasts } from 'Api/Api.js';
 import { useState, useEffect, useRef } from 'react';
@@ -46,7 +47,14 @@ const MovieDetailsPage = () => {
     <>
       <button
         onClick={() => {
-          history.push('/');
+          const paramsPath = routerState.current.params.pathname;
+          const paramsSearch = routerState.current.params.search;
+          // history.push(`${paramsPath}${paramsSearch}`);
+          // const paramsPath = location.state?.from?.pathname;
+          // const paramsSearch = location.state?.from?.search;
+
+          // console.log(`${paramsPath}${paramsSearch}`);
+          history.push(paramsPath ? `${paramsPath}${paramsSearch}` : '/');
         }}
       >
         Назад
