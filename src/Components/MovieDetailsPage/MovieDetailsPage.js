@@ -30,6 +30,9 @@ const MovieDetailsPage = () => {
   // console.log('history', history);
   const location = useLocation();
   // console.log('location', location.state);
+  const goToBackBtn = () => {
+    history.push(location?.state?.from ?? '/');
+  };
 
   useEffect(() => {
     if (!routerState.current) {
@@ -46,16 +49,19 @@ const MovieDetailsPage = () => {
   return (
     <>
       <button
-        onClick={() => {
-          const paramsPath = routerState.current.params.pathname;
-          const paramsSearch = routerState.current.params.search;
-          // history.push(`${paramsPath}${paramsSearch}`);
-          // const paramsPath = location.state?.from?.pathname;
-          // const paramsSearch = location.state?.from?.search;
+        onClick={goToBackBtn}
+        // () => {
+        // const paramsPath = routerState.current.params.pathname;
+        // const paramsSearch = routerState.current.params.search;
 
-          // console.log(`${paramsPath}${paramsSearch}`);
-          history.push(paramsPath ? `${paramsPath}${paramsSearch}` : '/');
-        }}
+        // history.push(`${paramsPath}${paramsSearch}`);
+        // const paramsPath = location.state?.from?.pathname;
+        // const paramsSearch = location.state?.from?.search;
+
+        // console.log(`${paramsPath}${paramsSearch}`);
+        // history.push(paramsPath ? `${paramsPath}${paramsSearch}` : '/');
+        //   history.push(location?.state?.from ?? '/');
+        // }}
       >
         Назад
       </button>
