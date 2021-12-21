@@ -31,7 +31,10 @@ const MovieDetailsPage = () => {
   const location = useLocation();
   // console.log('location', location.state);
   const goToBackBtn = () => {
-    history.push(location?.state?.from ?? '/');
+    const pathname = location.state?.from?.pathname;
+    const search = location.state?.from?.search;
+    return <Link to={pathname ? `${pathname}${search}` : '/'}></Link>;
+    // history.push(location?.state?.from ?? '/');
   };
 
   useEffect(() => {
