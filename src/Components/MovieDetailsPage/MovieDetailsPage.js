@@ -30,12 +30,6 @@ const MovieDetailsPage = () => {
   // console.log('history', history);
   const location = useLocation();
   // console.log('location', location.state);
-  const goToBackBtn = () => {
-    const pathname = location.state?.from?.pathname;
-    const search = location.state?.from?.search;
-    return <Link to={pathname ? `${pathname}${search}` : '/'}></Link>;
-    // history.push(location?.state?.from ?? '/');
-  };
 
   useEffect(() => {
     if (!routerState.current) {
@@ -51,23 +45,7 @@ const MovieDetailsPage = () => {
 
   return (
     <>
-      <button
-        onClick={goToBackBtn}
-        // () => {
-        // const paramsPath = routerState.current.params.pathname;
-        // const paramsSearch = routerState.current.params.search;
-
-        // history.push(`${paramsPath}${paramsSearch}`);
-        // const paramsPath = location.state?.from?.pathname;
-        // const paramsSearch = location.state?.from?.search;
-
-        // console.log(`${paramsPath}${paramsSearch}`);
-        // history.push(paramsPath ? `${paramsPath}${paramsSearch}` : '/');
-        //   history.push(location?.state?.from ?? '/');
-        // }}
-      >
-        Назад
-      </button>
+      <button onClick={() => history.goBack()}>Назад</button>
 
       <h2>MovieDetailsPage</h2>
       {moviesIdInfo && (
